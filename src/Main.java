@@ -29,7 +29,7 @@ public class Main {
             // Example 1: Successful checkout
             System.out.println("=== Example 1: Successful Checkout ===");
             cart.add(cheese, 2);
-            cart.add(tv, 1);  // Changed from 3 to 1 to reduce the total cost
+            cart.add(tv, 1);
             cart.add(scratchCard, 1);
 
             try {
@@ -40,7 +40,7 @@ public class Main {
 
             // Example 2: Checkout with insufficient balance
             System.out.println("\n=== Example 2: Insufficient Balance ===");
-            cart.add(tv, 3); // Adding TVs with a high total cost
+            cart.add(tv, 3);
 
             try {
                 CheckoutService.checkout(customer, cart);
@@ -65,12 +65,12 @@ public class Main {
 
             // Example 4: Checkout with out of stock product
             System.out.println("\n=== Example 4: Out of Stock Product ===");
-            // Set quantity to 0
+
             cheese.setQuantity(0);
 
             cart.clear();
             try {
-                cart.add(cheese, 1); // This should throw an exception
+                cart.add(cheese, 1);
             } catch (Exception e) {
                 System.err.println("Adding to cart failed: " + e.getMessage());
             }
@@ -89,7 +89,6 @@ public class Main {
             System.out.println("\n=== Example 6: Multiple Shippable Items ===");
             cart.clear();
 
-            // Reset cheese quantity
             cheese.setQuantity(10);
 
             cart.add(cheese, 2);
